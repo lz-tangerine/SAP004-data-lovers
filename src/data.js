@@ -1,10 +1,10 @@
 export function filtrar(campo, array) {
-  const filtrado = array.filter((item) => item.type.includes(campo))
+  const filtrado = array.filter((item) => item.type.includes(campo));
   return filtrado;
 }
 
 export function buscarNome(campo, array) {
-  const buscado = array.filter((item) => item.name.includes(campo))
+  const buscado = array.filter((item) => item.name.includes(campo));
   return buscado;
 }
 
@@ -25,5 +25,5 @@ export function ordemNomes(campo, array) {
 }
 
 export function chocarOvo(km) {
-  return (km / 5) * 60
+  return (km / 5) * 60;
 }

@@ -1,9 +1,4 @@
-import {
-  filtrar,
-  ordemNomes,
-  buscarNome,
-  chocarOvo
-} from "./data.js";
+import { filtrar, ordemNomes, buscarNome, chocarOvo } from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
 const arrayPokemon = data["pokemon"];
@@ -14,7 +9,7 @@ window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
 let campoBusca = document.querySelector("#campo-busca");
 campoBusca.addEventListener("input", function Buscado() {
@@ -38,12 +33,12 @@ campoOrdem.addEventListener("input", function () {
 
 let botaoLimparFiltro = document.querySelector("#botao-limpar");
 botaoLimparFiltro.addEventListener("click", function () {
-  limpaCampo('.filtrar-pokemon')
+  limpaCampo(".filtrar-pokemon");
 });
 
 let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
 botaoLimparOrdem.addEventListener("click", function () {
-  limpaCampo('#campo-ordenacao-pokemon')
+  limpaCampo("#campo-ordenacao-pokemon");
 });
 
 function card(array) {
@@ -76,9 +71,9 @@ function card(array) {
     tipo.classList.add("lista-tipo");
     li.appendChild(tipo);
 
-    dadoTipo.forEach(tipoPokemon => {
+    dadoTipo.forEach((tipoPokemon) => {
       const infoTipo = document.createElement("tipo");
-      infoTipo.classList = (tipoPokemon);
+      infoTipo.classList = tipoPokemon;
       infoTipo.textContent = tipoPokemon;
       tipo.appendChild(infoTipo);
     });
@@ -143,7 +138,12 @@ function modalCard(element) {
   } else {
     let egg = document.createElement("p");
     let eggKm = element.egg.replace("km", "");
-    egg.innerHTML = "<h4>" + "Uma pessoa andando 5km/h vai demorar:  " + "</h4>" + chocarOvo(eggKm) + " min para chocar o ovo";
+    egg.innerHTML =
+      "<h4>" +
+      "Uma pessoa andando 5km/h vai demorar:  " +
+      "</h4>" +
+      chocarOvo(eggKm) +
+      " min para chocar o ovo";
     egg.classList.add("lista-info-egg");
     div.appendChild(egg);
   }
@@ -153,9 +153,9 @@ function modalCard(element) {
   pFraqueza.innerHTML = "<h4>" + "Fraqueza" + "</h4>";
   div.appendChild(pFraqueza);
 
-  element.weaknesses.forEach(fraqueza => {
+  element.weaknesses.forEach((fraqueza) => {
     const infoFraqueza = document.createElement("tipo");
-    infoFraqueza.classList = (fraqueza);
+    infoFraqueza.classList = fraqueza;
     infoFraqueza.textContent = fraqueza;
     pFraqueza.appendChild(infoFraqueza);
   });
@@ -170,10 +170,10 @@ function modalCard(element) {
   pEvolution.appendChild(divEvolution);
 
   if (!element.next_evolution == 0) {
-    const arrayNextEvolution = element.next_evolution.map(next => next.name);
-    arrayNextEvolution.forEach(item => {
+    const arrayNextEvolution = element.next_evolution.map((next) => next.name);
+    arrayNextEvolution.forEach((item) => {
       let buscarImg = buscarNome(item, arrayPokemon);
-      let buscarImgArray = buscarImg.find(itemArray => itemArray.img);
+      let buscarImgArray = buscarImg.find((itemArray) => itemArray.img);
       let evolutionImg = document.createElement("img");
       let evolution = document.createElement("p");
       evolutionImg.classList.add("lista-evolution-img");
@@ -182,7 +182,7 @@ function modalCard(element) {
       evolution.classList.add("lista-evolution-nome");
       evolution.appendChild(evolutionImg);
       divEvolution.appendChild(evolution);
-    })
+    });
   } else {
     const evolution = document.createElement("p");
     evolution.innerHTML = "Este Pokémon não evolui";
@@ -192,12 +192,12 @@ function modalCard(element) {
   botaoFechar = document.querySelector(".close");
   botaoFechar.onclick = function () {
     modal.style.display = "none";
-  }
+  };
   modal.style.display = "block";
 }
 
 function limpaCampo(selector) {
   const campo = document.querySelector(selector);
-  campo.value = ""
+  campo.value = "";
   card(arrayPokemon);
 }
