@@ -28,4 +28,6 @@ Foram executados testes unitários para verificação da funcionalidade e o padr
 
 Foi utilizado também _Node.js_, _Git_ e _GitHub_.
 
+Acesse nosso site [aqui](https://lz-tangerine.github.io/SAP004-data-lovers/src/)
+
 Feito com 💕 por [Nathalia](https://github.com/nabitener) e [Carol](https://github.com/lz-tangerine)
